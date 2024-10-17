@@ -1,5 +1,8 @@
 const Card = function CardComponent({
   pokemonID,
+  pokemonSprite,
+  pokemonTypes,
+  pokemonName,
   handleAddScore,
   handleShuffleCards,
 }) {
@@ -11,13 +14,17 @@ const Card = function CardComponent({
   return (
     <div className="card" onClick={handleCardClick}>
       <div className="img-container">
-        <img src=""></img>
+        <img src={pokemonSprite} alt={`${pokemonName} image`} />
       </div>
       <div className="pkmn-info-container">
         <p className="pkmn-id">#{pokemonID}</p>
-        <div className="pkmn-type"></div>
+        <div className="pkmn-type">
+          {pokemonTypes.map((type) => (
+            <img key={type.spriteURL} src={type.spriteURL} alt={type.name} />
+          ))}
+        </div>
       </div>
-      <div className="pkmn-name">Pokemon</div>
+      <div className="pkmn-name">{pokemonName}</div>
     </div>
   );
 };
