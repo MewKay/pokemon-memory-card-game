@@ -28,7 +28,7 @@ const generateArray = function generateArrayOf12RandomIDs() {
   return array;
 };
 
-const CardGrid = function CardGridComponent() {
+const CardGrid = function CardGridComponent({ handleAddScore }) {
   const [currentPokemonIDs, setCurrentPokemonIDs] = useState(generateArray());
 
   const handleShuffle = function handleShuffleIDCardsPosition() {
@@ -42,6 +42,7 @@ const CardGrid = function CardGridComponent() {
           key={pokemonID}
           pokemonID={pokemonID}
           handleShuffleCards={handleShuffle}
+          handleAddScore={handleAddScore}
         />
       ))}
     </div>

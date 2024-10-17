@@ -1,5 +1,10 @@
-const Card = function CardComponent({ pokemonID, handleShuffleCards }) {
+const Card = function CardComponent({
+  pokemonID,
+  handleAddScore,
+  handleShuffleCards,
+}) {
   const handleCardClick = function handleCardClick() {
+    handleAddScore();
     handleShuffleCards();
   };
 
