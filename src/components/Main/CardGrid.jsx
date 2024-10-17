@@ -1,4 +1,16 @@
+import { useState } from "react";
 import Card from "./Card";
+
+const shuffleArray = function shuffleArray(array) {
+  let newArr = structuredClone(array);
+
+  for (let i = newArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+  }
+
+  return newArr;
+};
 
 const generateArray = function generateArrayOf12RandomIDs() {
   let array = [];
@@ -17,12 +29,20 @@ const generateArray = function generateArrayOf12RandomIDs() {
 };
 
 const CardGrid = function CardGridComponent() {
-  let cards = generateArray();
+  const [currentPokemonIDs, setCurrentPokemonIDs] = useState(generateArray());
+
+  const handleShuffle = function handleShuffleIDCardsPosition() {
+    setCurrentPokemonIDs(shuffleArray(currentPokemonIDs));
+  };
 
   return (
     <div className="card-grid">
-      {cards.map((pokemonID) => (
-        <Card key={pokemonID} />
+      {currentPokemonIDs.map((pokemonID) => (
+        <Card
+          key={pokemonID}
+          pokemonID={pokemonID}
+          handleShuffleCards={handleShuffle}
+        />
       ))}
     </div>
   );
