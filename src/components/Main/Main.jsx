@@ -3,8 +3,8 @@ import CardGrid from "./CardGrid";
 import Scoreboard from "./Scoreboard";
 
 const Main = function MainContentComponent() {
-  let bestScore = 0;
   const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [passedClickedIDs, setPassedClickedIds] = useState([]);
 
   const handleAddScore = function incrementScoreAndAddIDtoPassedArray(
@@ -17,6 +17,11 @@ const Main = function MainContentComponent() {
     }
 
     const newScore = currentScore + 1;
+
+    if (newScore > bestScore) {
+      setBestScore(newScore);
+    }
+
     setCurrentScore(newScore);
     setPassedClickedIds([...passedClickedIDs, pokemonIDpassed]);
   };
