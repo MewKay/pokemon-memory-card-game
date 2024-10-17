@@ -1,3 +1,4 @@
+import CardGrid from "./CardGrid";
 import Scoreboard from "./Scoreboard";
 
 const Main = function MainContentComponent() {
@@ -7,6 +8,7 @@ const Main = function MainContentComponent() {
   return (
     <main>
       <Scoreboard bestScore={bestScore} currentScore={currentScore} />
+      <CardGrid />
     </main>
   );
 };
