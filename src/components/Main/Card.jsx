@@ -4,7 +4,7 @@ const Card = function CardComponent({
   handleShuffleCards,
 }) {
   const handleCardClick = function handleCardClick() {
-    handleAddScore();
+    handleAddScore(pokemonID);
     handleShuffleCards();
   };
 

@@ -5,10 +5,20 @@ import Scoreboard from "./Scoreboard";
 const Main = function MainContentComponent() {
   let bestScore = 0;
   const [currentScore, setCurrentScore] = useState(0);
+  const [passedClickedIDs, setPassedClickedIds] = useState([]);
 
-  const handleAddScore = function handleAddScore() {
+  const handleAddScore = function incrementScoreAndAddIDtoPassedArray(
+    pokemonIDpassed
+  ) {
+    if (passedClickedIDs.includes(pokemonIDpassed)) {
+      setCurrentScore(0);
+      setPassedClickedIds([]);
+      return;
+    }
+
     const newScore = currentScore + 1;
     setCurrentScore(newScore);
+    setPassedClickedIds([...passedClickedIDs, pokemonIDpassed]);
   };
 
   return (
