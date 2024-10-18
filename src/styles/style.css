@@ -4,13 +4,15 @@
   --primary: #0075be;
   --white: #ebfeff;
   --yellow: #ffcc00;
+  --grey: #3b3b3b;
   --font-text: "Poppins", Helvetica;
 }
 
-#root {
+body {
   font-family: var(--font-text);
   background-color: var(--white);
   color: var(--primary);
+  min-height: 100vh;
 }
 
 header {
@@ -43,4 +45,56 @@ header {
   border: solid 5px var(--primary);
   border-radius: 12px;
   background-color: var(--yellow);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 5rem 5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: solid 3px var(--primary);
+  border-radius: 10px;
+  padding: 1.5rem 1.5rem;
+  background-color: white;
+  color: var(--grey);
+}
+
+.card:hover {
+  border: solid 3px var(--yellow);
+  cursor: pointer;
+}
+
+.card .img-container {
+  border: solid 1px var(--grey);
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, lightgrey 50%, white 50%);
+}
+
+.card .pkmn-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card .pkmn-type {
+  display: flex;
+  max-height: 2rem;
+}
+
+.pkmn-type img {
+  object-fit: contain;
+  max-width: 5rem;
+}
+
+.pkmn-name {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
