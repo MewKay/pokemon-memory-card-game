@@ -3,6 +3,7 @@
 :root {
   --primary: #0075be;
   --white: #ebfeff;
+  --yellow: #ffcc00;
   --font-text: "Poppins", Helvetica;
 }
 
@@ -22,4 +23,24 @@ header {
 
 .title-container img {
   max-height: 4rem;
+}
+
+.scoreboard {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreboard .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.6rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: solid 5px var(--primary);
+  border-radius: 12px;
+  background-color: var(--yellow);
 }
