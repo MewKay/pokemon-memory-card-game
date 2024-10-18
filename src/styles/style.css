@@ -98,3 +98,16 @@ header {
   margin-top: 1rem;
   font-size: 1.5rem;
 }
+
+.loading-container {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-top: 5rem;
+}
+
+.error-container {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
