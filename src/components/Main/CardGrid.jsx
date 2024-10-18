@@ -104,6 +104,7 @@ const fetchPokemonData = async function fetchPokemonData(pokemonID) {
 const CardGrid = function CardGridComponent({ handleAddScore }) {
   const [currentPokemonIDs, setCurrentPokemonIDs] = useState(generateArray());
   const [pokeDatas, setPokeDatas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const updatePokeDatas = async function updatePokeDatas() {
@@ -112,6 +113,7 @@ const CardGrid = function CardGridComponent({ handleAddScore }) {
       );
 
       setPokeDatas(newPokeDatas);
+      setIsLoading(false);
     };
 
     updatePokeDatas();
@@ -120,6 +122,14 @@ const CardGrid = function CardGridComponent({ handleAddScore }) {
   const handleShuffle = function handleShuffleIDCardsPosition() {
     setCurrentPokemonIDs(shuffleArray(currentPokemonIDs));
   };
+
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="card-grid">
